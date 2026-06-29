@@ -1,6 +1,7 @@
 # Mostek-local-tuya-do-mqtt-klimatyzatora-Rotenso-Roni-TCL
 Mostek local tuya do mqtt klimatyzatora Rotenso Roni 
 
+Najprawdopodobniej klimatyzator Rotenso Roni to bezpośredni klon TCL Elite.
 
 Uzyskanie local_key i device_ID urządzenie tuya:
 
