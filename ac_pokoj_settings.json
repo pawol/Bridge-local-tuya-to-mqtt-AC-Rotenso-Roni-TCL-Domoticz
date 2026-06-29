@@ -1,0 +1,23 @@
+{
+  "device_id": "yyyyyyyyyyyyyy",
+  "device_key": "xxxxxxxxxx",
+  "device_ip": "192.168.2.15",
+  "topic_set": "tuya/ac_pokoj/set",
+  "topic_status": "tuya/ac_pokoj/status",
+  "idx": {
+    "power": 735,
+    "temp": 736,
+    "mode": 737,
+    "fan": 738,
+    "vswing": 744,
+    "vpos": 745,
+    "hswing": 746,
+    "hpos": 747,
+    "display": 739,
+    "anti_mildew": 740,
+    "health": 741,
+    "eco": 742,
+    "beeper": 743,
+    "sleep": 761
+  }
+}
