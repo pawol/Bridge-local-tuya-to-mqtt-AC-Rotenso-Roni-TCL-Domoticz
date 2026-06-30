@@ -18,72 +18,35 @@ local_key pojawi się w onie Debugging Results jako Response
 
 
 Zapisać device_ID (uuid w Responce) i local_key (tez w Response) do pliku ac_pokoj_settings.json
-Template pliku do pobrania.
-
+Template pliku do pobrania z tego repozytorium.
 
 Skopiowanie skryptu mostkujący klimatyzator tuya Rotenso Roni o nazwie ac_pokoj.py oraz ac_pokoj_settings.json
 do przykładowo foldera:
-/home/pwoloszyn/domoticz/scripts/tuya/AC/
+    /home/pwoloszyn/domoticz/scripts/tuya/AC/
 
 Instalacja python venv i tinytuya:
 
-sudo apt update
-sudo apt install python3-venv -y
-cd /home/pwoloszyn
-python3 -m venv tinytuya_env
-source /home/pwoloszyn/tinytuya_env/bin/activate
-pip install --upgrade pip
-pip install tinytuya paho-mqtt
-
+    sudo apt update
+    sudo apt install python3-venv -y
+    cd /home/pwoloszyn
+    python3 -m venv tinytuya_env
+    source /home/pwoloszyn/tinytuya_env/bin/activate
+    pip install --upgrade pip
+    pip install tinytuya paho-mqtt
 
 Autostart tinytuya przez systemd:
 
-sudo nano /etc/systemd/system/ac_pokoj.service
+    sudo nano /etc/systemd/system/ac_pokoj.service
 i wkleić treść zmodyfikowaną pod siebie.
 
 testowo możesz już teraz uruchomić skrypt przez:
-/home/pwoloszyn/tinytuya/bin/python /home/pwoloszyn/domoticz/scripts/tuya/AC/ac_pokoj.py
+    /home/pwoloszyn/tinytuya/bin/python /home/pwoloszyn/domoticz/scripts/tuya/AC/ac_pokoj.py
 
 Podobnie z ac_sniffer.py, Skrypt snifuje komunikację klimatyzatora z tuya gdy naciskamy przyciski pilota.
-/home/pwoloszyn/tinytuya/bin/python /home/pwoloszyn/domoticz/scripts/tuya/AC/ac_snifer.py
+    /home/pwoloszyn/tinytuya/bin/python /home/pwoloszyn/domoticz/scripts/tuya/AC/ac_snifer.py
 
-
-Utwórz odpowiedni plik stsytemd do usuchamiania skryptu jako serwis przy starcie systemu.
-    sudo nano /etc/systemd/system/ac_pokoj.service
-
-a w nim wklej i odpowiedni zmodyfikuj pod siebie:
-
-    [Unit]
-    Description=Klimatyzacja w pokoju (Tuya MQTT)
-    After=network.target
-
-    [Service]
-    Type=simple
-    User=pwoloszyn
-    WorkingDirectory=/home/pwoloszyn/domoticz/scripts/tuya/AC
-    ExecStart=/home/pwoloszyn/tinytuya_env/bin/python /home/pwoloszyn/domoticz/scripts/tuya/AC/ac_pokoj.py
-    Restart=always
-    RestartSec=5
-    #StandardOutput=append:/tmp/ac_pokoj.log
-    #StandardError=append:/tmp/ac_pokoj.log
-    StandardOutput=null
-    StandardError=null
-
-    [Install]
-    WantedBy=multi-user.target
-
-Zapewnienie autostartu tinytuya jako systemd:
-
-    sudo systemctl daemon-reload
-    sudo systemctl enable ac_pokoj.service
-    sudo systemctl start ac_pokoj.service
-    sudo systemctl status ac_pokoj.service
-
-Pamiętaj, że każda modyfikacja skryptu lub jego konfiguracji musi zakończyć się restartem systemd:
-sudo systemctl restart ac_pokoj
-
-Po uruchomieniu skryptu można obserwować status klimatyzatora:
-mosquitto_sub -v -t 'tuya/ac_pokoj/status'
+Po uruchomieniu skryptu ac_pokoj_py w python venv od razu można obserwować status klimatyzatora:
+    mosquitto_sub -v -t 'tuya/ac_pokoj/status'
 
 i sterować nim:
 
@@ -253,7 +216,6 @@ i wkleić treść zmodyfikowaną pod siebie.
 
 Przykład pliku systemd:
 
-    #---------------------------
     [Unit]
     Description=Klimatyzacja w pokoju (Tuya MQTT)
     After=network.target
@@ -272,7 +234,6 @@ Przykład pliku systemd:
 
     [Install]
     WantedBy=multi-user.target
-    #--------------------------------
 
 Zapewnienie autostartu tinytuya jako systemd:
 
@@ -280,3 +241,6 @@ Zapewnienie autostartu tinytuya jako systemd:
     sudo systemctl enable ac_pokoj.service
     sudo systemctl start ac_pokoj.service
     sudo systemctl status ac_pokoj.service
+
+Pamiętaj, że każda modyfikacja skryptu lub jego konfiguracji musi zakończyć się restartem systemd:
+    sudo systemctl restart ac_pokoj
