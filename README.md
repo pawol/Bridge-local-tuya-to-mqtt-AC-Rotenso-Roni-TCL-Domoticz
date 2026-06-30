@@ -84,6 +84,7 @@ Po uruchomieniu skryptu można obserwować status klimatyzatora:
 mosquitto_sub -v -t 'tuya/ac_pokoj/status'
 
 i sterować nim:
+
 🟩 1. POWER (DPS 1)
 
 mosquitto_pub -t tuya/ac_pokoj/set -m '{"power":"on"}'
@@ -189,6 +190,7 @@ mosquitto_pub -t tuya/ac_pokoj/set -m '{"hpos":"5"}'
 
 
 Utworzyć w Domoticz wirtualne switche/ selectory/setpointy itd. według schematu:
+
     "Power"-Switch (On/Off)
     "Ustawiana temperatura": Setpoint (Thermostat/Setpoint)
     "Odczytana temperatura": Temperature
