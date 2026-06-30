@@ -1,7 +1,8 @@
-# Bridge-local-tuya-do-mqtt-AC-Rotenso-Roni-TCL
-Bridge local tuya to mqtt AC Rotenso Roni / TCL
+# Bridge-local-tuya-do-mqtt-AC-Rotenso-Roni-TCL-Domoticz
+Bridge local tuya to mqtt AC Rotenso Roni / TCL - Domoticz
 
 Najprawdopodobniej klimatyzator Rotenso Roni to bezpośredni klon TCL Elite.
+Moje rozwiązanie umożłiwia sterowanie klimatyzatorem po mqtt i przez Domoticz
 
     Pamiętaj, że eksperymentujesz na własną odpowiedzialność!
     
