@@ -183,7 +183,7 @@ Utworzyć w Domoticz wirtualne switche/ selectory/setpointy itd. według schemat
     "Tryb do spania": Switch (On/Off) (normal, off)
 
 
-IDX utworzonych przełaczników przenieść do pliku ac_pokoj_settings.json
+IDX utworzonych przełaczników przenieść do pliku ac_pokoj_settings.json.
 Przykład:
 
     "power": 735,       // Switch (On/Off)
