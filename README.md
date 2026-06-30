@@ -37,6 +37,7 @@ Instalacja python venv i tinytuya:
 Autostart tinytuya przez systemd:
 
     sudo nano /etc/systemd/system/ac_pokoj.service
+    
 i wkleić treść zmodyfikowaną pod siebie.
 
 testowo możesz już teraz uruchomić skrypt przez:
@@ -48,6 +49,7 @@ Podobnie z ac_sniffer.py, Skrypt snifuje komunikację klimatyzatora z tuya gdy n
     /home/pwoloszyn/tinytuya/bin/python /home/pwoloszyn/domoticz/scripts/tuya/AC/ac_snifer.py
 
 Po uruchomieniu skryptu ac_pokoj_py w python venv od razu można obserwować status klimatyzatora:
+
     mosquitto_sub -v -t 'tuya/ac_pokoj/status'
 
 i sterować nim:
@@ -198,7 +200,8 @@ Przykład:
 
 Skopiowanie skryptu mostkujący klimatyzator tuya Rotenso Roni o nazwie ac_pokoj.py oraz ac_pokoj_settings.json
 do przykładowo foldera:
-/home/pwoloszyn/domoticz/scripts/tuya/AC/
+
+ /home/pwoloszyn/domoticz/scripts/tuya/AC/
 
 Instalacja python venv i tinytuya:
 
@@ -246,4 +249,5 @@ Zapewnienie autostartu tinytuya jako systemd:
     sudo systemctl status ac_pokoj.service
 
 Pamiętaj, że każda modyfikacja skryptu lub jego konfiguracji musi zakończyć się restartem systemd:
+
     sudo systemctl restart ac_pokoj
