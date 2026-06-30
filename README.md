@@ -47,38 +47,40 @@ testowo możesz już teraz uruchomić skrypt przez:
 Podobnie z ac_sniffer.py, Skrypt snifuje komunikację klimatyzatora z tuya gdy naciskamy przyciski pilota.
 /home/pwoloszyn/tinytuya/bin/python /home/pwoloszyn/domoticz/scripts/tuya/AC/ac_snifer.py
 
-#--------------------------------------------------------
-[Unit]
-Description=Klimatyzacja w pokoju (Tuya MQTT)
-After=network.target
 
-[Service]
-Type=simple
-User=pwoloszyn
-WorkingDirectory=/home/pwoloszyn/domoticz/scripts/tuya/AC
-ExecStart=/home/pwoloszyn/tinytuya_env/bin/python /home/pwoloszyn/domoticz/scripts/tuya/AC/ac_pokoj.py
-Restart=always
-RestartSec=5
-#StandardOutput=append:/tmp/ac_pokoj.log
-#StandardError=append:/tmp/ac_pokoj.log
-StandardOutput=null
-StandardError=null
+Utwórz odpowiedni plik stsytemd do usuchamiania skryptu jako serwis przy starcie systemu.
+    sudo nano /etc/systemd/system/ac_pokoj.service
 
-[Install]
-WantedBy=multi-user.target
-#--------------------------------------------------------
+a w nim wklej i odpowiedni zmodyfikuj pod siebie:
+
+    [Unit]
+    Description=Klimatyzacja w pokoju (Tuya MQTT)
+    After=network.target
+
+    [Service]
+    Type=simple
+    User=pwoloszyn
+    WorkingDirectory=/home/pwoloszyn/domoticz/scripts/tuya/AC
+    ExecStart=/home/pwoloszyn/tinytuya_env/bin/python /home/pwoloszyn/domoticz/scripts/tuya/AC/ac_pokoj.py
+    Restart=always
+    RestartSec=5
+    #StandardOutput=append:/tmp/ac_pokoj.log
+    #StandardError=append:/tmp/ac_pokoj.log
+    StandardOutput=null
+    StandardError=null
+
+    [Install]
+    WantedBy=multi-user.target
 
 Zapewnienie autostartu tinytuya jako systemd:
 
-sudo systemctl daemon-reload
-sudo systemctl enable ac_pokoj.service
-sudo systemctl start ac_pokoj.service
-sudo systemctl status ac_pokoj.service
+    sudo systemctl daemon-reload
+    sudo systemctl enable ac_pokoj.service
+    sudo systemctl start ac_pokoj.service
+    sudo systemctl status ac_pokoj.service
 
 Pamiętaj, że każda modyfikacja skryptu lub jego konfiguracji musi zakończyć się restartem systemd:
 sudo systemctl restart ac_pokoj
-
-
 
 Po uruchomieniu skryptu można obserwować status klimatyzatora:
 mosquitto_sub -v -t 'tuya/ac_pokoj/status'
