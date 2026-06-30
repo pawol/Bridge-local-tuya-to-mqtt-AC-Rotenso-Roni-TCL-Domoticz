@@ -3,6 +3,9 @@ Bridge local tuya to mqtt AC Rotenso Roni / TCL
 
 Najprawdopodobniej klimatyzator Rotenso Roni to bezpośredni klon TCL Elite.
 
+    Pamiętaj, że eksperymentujesz na własną odpowiedzialność!
+    
+
 Uzyskanie local_key i device_ID urządzenie tuya:
 
 - Skonfigurować apke tuya i zintegrować klimatyzator, zamknąć apkę
@@ -18,7 +21,7 @@ local_key pojawi się w onie Debugging Results jako Response
 
 
 Zapisać device_ID (uuid w Responce) i local_key (tez w Response) do pliku ac_pokoj_settings.json
-Template pliku do pobrania z tego repozytorium.
+Template pliku jest do pobrania z tego repozytorium.
 
 Skopiowanie skryptu mostkujący klimatyzator tuya Rotenso Roni o nazwie ac_pokoj.py oraz ac_pokoj_settings.json
 do przykładowo foldera:
