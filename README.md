@@ -189,21 +189,21 @@ mosquitto_pub -t tuya/ac_pokoj/set -m '{"hpos":"5"}'
 
 
 Utworzyć w Domoticz wirtualne switche/ selectory/setpointy itd. według schematu:
-Power-Switch (On/Off)
-Ustawiana temperatura-jako Setpoint (Thermostat/Setpoint)
-Odczytana temperatura-jako Temperature
-Tryb pracy-jako Selector Switch (Auto, Cold, Wet, Wind, Hot) (level 10/20/30/40/50)
-Siła nawiewu-jako Selector Switch (Auto, Mute, Low, Mid, Mid-High, High) (level 10/20/30/40/50/60)
-Pionowy swing-jako Selector Switch (Off, 1, 2, 3) (level 0/10/20/30)
-Pionowa pozycja-jako Selector Switch (1, 2, 3, 4, 5) (level 10/20/30/40/50)
-Poziomy swing-jako Selector Switch (Off, 1, 2, 3, 4) (level 0/10/20/30)
-Pozioma pozycja-jako Selector Switch (1, 2, 3, 4, 5) (level 10/20/30/40/50)
-Display-jako Switch (On/Off) (true, false)
-Anti-mildew-jako Switch (On/Off) (true, false)
-Health-jako Switch (On/Off) (true, false)
-Tryb Eco-jako Switch (On/Off) (true, false)
-Beeper-jako Switch (On/Off) (on, off)
-Tryb do spania-jako Switch (On/Off) (normal, off)
+// Power-Switch (On/Off)
+// Ustawiana temperatura-jako Setpoint (Thermostat/Setpoint)
+// Odczytana temperatura-jako Temperature
+// Tryb pracy-jako Selector Switch (Auto, Cold, Wet, Wind, Hot) (level 10/20/30/40/50)
+// Siła nawiewu-jako Selector Switch (Auto, Mute, Low, Mid, Mid-High, High) (level 10/20/30/40/50/60)
+// Pionowy swing-jako Selector Switch (Off, 1, 2, 3) (level 0/10/20/30)
+// Pionowa pozycja-jako Selector Switch (1, 2, 3, 4, 5) (level 10/20/30/40/50)
+// Poziomy swing-jako Selector Switch (Off, 1, 2, 3, 4) (level 0/10/20/30)
+// Pozioma pozycja-jako Selector Switch (1, 2, 3, 4, 5) (level 10/20/30/40/50)
+// Display-jako Switch (On/Off) (true, false)
+// Anti-mildew-jako Switch (On/Off) (true, false)
+// Health-jako Switch (On/Off) (true, false)
+// Tryb Eco-jako Switch (On/Off) (true, false)
+// Beeper-jako Switch (On/Off) (on, off)
+// Tryb do spania-jako Switch (On/Off) (normal, off)
 
 
 IDX utworzonych przełaczników przenieść do pliku ac_pokoj_settings.json
